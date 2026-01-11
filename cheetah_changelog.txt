@@ -1,509 +1,383 @@
 ====================
-     11-07-2025
+     01-11-2026
 ====================
 
-   * build/soong
-44113667f cc: do not disable FMA
-c018c43ae arm64_device: armv9-a: add additional march flags for all supported armv9-a platforms
-8b0b97b62 afdo: further optimize AFDO modules
-7ca06da74 Revert "cc/lto: enable unified LTO"
+   * android
+fea6bb9 manifest: Untrack LMOSystemUIClock
 
    * frameworks/base
-5b0a6120e8b7 SystemUI: Remove alarm from statusbar icon blocklist
+916b0d81c New Crowdin updates (#1279)
+c98c1e7b2 Update Crowdin configuration file
+71996df60 fixing app directory access
+3ca08ad8c fixing ShadeDialogContextRepo crash
+dabed6025 display: Allow HBM in manual brightness if no time limitation
+7c2874b98 Remove Duplicate WIFI_DISPLAY permission entry
+5ad432b6e totalScanTimeMs and totalWifiLockTimeMs may be 0, causing an ArithmeticException and triggering a reboot.
+89f5b7ff4 Add Fix Bluetooth status display issue after power cycle
+682273719 Fixes an issue where the lockscreen clock would display the incorrect time after a SystemUI restart or hot reload.
+2d6a2da25 SettingsLib: Don't show system overlays on apps list
+6c308c698 SystemUI: smartspace: Open google weather on tapping smartspace
+272b8a43a SystemUI: smartspace: refactor dagger
+d0531849f SystemUI: smartspace: fix media view mistake
+d75ad4634 SystemUI: Align Smartspace DataProviders with updated BcSmartspaceDataPlugin API
+02f8a08c9 SystemUI: re enable KeyguardSliceProvider
+1cb3a4467 SystemUI: smartspace: fix duplicate date view on lockscreen
+31ac4970c SystemUI: Implement Reverse-engineered Smartspace
+a6f4a8bd2 center-cropping media bitmaps to improve quality
+87f35e45b preventing media album bitmaps from impacting performance
+bbd7ec017 appops: skip ops for invalid null package during state serialization
+ae58ad1c7 Revert "Null safe package name in AppOps writeState"
+23cf11114 ActivityManagerService: Perform system compaction with GC
+962c92690 ActivityManagerService: Adjust delay on boot system compaction
+9cba6be4c services: Reduce grace window to kill cache after user unlock
+ec6a2e8eb fixing configuration controller crash
+d8016b1fb fixing contacts apps crash
+12379497c SystemUI: Fix keyguard back button background
+5874d770f Fix NullPointerException in PackageManagerService
+8a553aa67 Reduce unnecessary calls to getLatestVsyncEventData
+eb6dbed0f ViewGroup: null-check child in dispatchDraw to avoid NPE
+362ac2c4b Fix RuntimeXfermode native memory leaks
+b67de887d SettingsLib: Prevent NPE for fragments without divider
+a44b27c8a SystemUI: Hide data switch tile on non-voice capable devices
+355c9f3b4 Fix it has two times return back if only press the back key one time.
+fe5cc61ec Fix index out of bounds exception in HandwritingModeController.
+1d1e7c757 SystemUI: Prevent ShadeListBuilder illegal state on notification dump
+8d91a6063 SystemUI: Prevent NotifCollection illegal state on notification dump
+46fc5b88b SystemUI: Fix stale colors on power menu after UI mode change
+a28f7cceb CpuMonitorService: reduce cache size
+e35304650 SystemUI: Add toggle for doze wallpaper
+b782c23df Fix ConcurrentModificationException in LocaleStore
+8ac9b803b system: Postpone NetworkWatchlistService scan during boot
+d2077f8a3 try-catch unlinkToDeath called on unlinked Binder.
+ce4a903b7 Minor code optimization.
+645baea84 Move SaveUi from bottom to center
+27fc1bfae am: Prevent ANRs by offloading dumps to a dedicated thread
+a07e46ee2 Fix NullPointerException in ArtFastDataOutput.writeUTF()
+5efc94a17 Fix memory leak in car service
+285813350 InputMethodManager: Prevent unnecessary invocation of IME
+863ee39c5 Optimize home to desktop transition speed.
+ba8e0867a Optimize the response speed of recents animations
+82458b9a4 adjust frame distance to make scrolling smoother.
+386a43e2d ScreenshotController: Play haptic feedback even on normal ringer mode
+461252a1e ScreenshotController: Clean up resources when dismissed
+3ee5bf000 Screenrecord: Fix notifications not being dismissed
+6e7775081 SystemUI: Screenrecord: Add delete action to the notification
+e0e8b45e1 SystemUI: InternetTileNewImpl: Fix secondary click
+2a64ccf65 SystemUI: Allow devices to disable 5G toggle
+70aed52b8 SystemUI: Introduce 5G toggle in internet connectivity dialog
+64bd55ff1 SystemUI: Add hotspot toggle in QS internet dialog
+155f3282a fix missing notification backgrounds
+1475ffe69 Optimize the DateTimeView logic time consumption when updating the Ui main thread time
+8a0f317be SystemUI: Add margin above small clock in lockscreen
+514895930 fix NullPointerException in Animator:callOnList
+575bbea1e don't remove app widgets from user's home screen when the user stops
+ae6e8f47f SystemUI: Remove split navigation bar layout for sw900dp
+3c8a73bf0 SystemUI: Constrain keyguard indication area burn-in offset
+4efee58b4 AudioService: Cancel old toasts when switching ringer mode
+e20999d38 AudioService: do not block focus request from applications compiled with lower version sdks
+683ba14d9 SystemUI: Fix Internet Tile showing no service
+8a7021530 frameworks/base: Import Xiaomi Image Tags defenitions
+0d3ecad6e SystemUI: write initial value of SHOW_QR_CODE_SCANNER_SETTING on first call
+71cfb0df2 SystemUI: Use privacy_chip_background for charger indicator bg
+bd7caf961 base: Add support for application downgrade [1/2]
+9760ba89b base: Add option to cycle through ringer modes [1/3]
+ec8eee638 base: Allow disabling private DNS for VPN [1/2]
+54ac87629 SystemUI: Add flashlight strength control [SQUASHED]
+5ef1bc40e SystemUI: Refresh system icons on theme change
+cbd829bf7 services: Reduce memory release interval guard
+8136156be ActivityManagerService: Rewrite release memory on screen wake
+ae5eca295 SystemUI: clean heap memory on screen off
+8a3e06663 services: clean system_server heap memory on screen off
+2e6bf23df services: optimize memory on device wake
+e936a232e CachedAppOptimizer: Pageout File pages during system compaction
+33460a6ff CachedAppOptimizer: Initialize compactProfile and compactTime
+b70806cce CachedAppOptimizer: Fix persistent compact skipped
+94d522db8 CachedAppOptimizer: Set thread group to background
+f3c6c44e7 services: Disallow max cached processes above 128
+a3a129136 CUR_MAX_CACHED_PROCESSES is not greater than the maximum value allowed
+9d30f2e26 Ask pin for shutdown/reboot on secure lockscreen
+bdfbfbdc0 SystemUI: Hide QR code scanner tile if not launch activity available
+2d2ac8cdc Fix NPE problem to avoid systemserver process crash.
+7322f0b4d PowerStats: extend the MAX_STATS_ARRAY_LENGTH
+8bd1de3bf TelephonyManager: Gracefully handle null telephony service - isNullCipherNotificationsEnabled
+152ae060e Telephony: Gracefully handle data enablement checks
+a199493d0 TelephonyManager: Gracefully handle null telephony service [2]
+ee3dd8287 SystemUI: Redraw display cutout on overlay changes
+53377648e SystemUI: Prevent indicator text cutting off in biometric prompt
+af744caab fixup! Broadcast radio power state changes
+281dbcf97 Broadcast radio power state changes
 
-   * lineage/wiki
-1ebd2751 wiki: Correct vermeer's ram specifications to LPDDR5X
-ad5d6279 aston/waffle: Remove eSIM quirk
+   * packages/apps/GameSpace
+f5d398f Merge pull request #126 from mukesh22584/16.0
 
    * packages/apps/Launcher3
-42f1ec01f5 Launcher3: Remove D2S vibrate if not supported
-
-   * packages/apps/ThemePicker
-1f17b821 ThemePicker: Fix RU translation
-
-   * packages/apps/crDroidSettings
-9750525 crdroid: Add fixes for pref removal
-
-   * vendor/google/faceunlock
-57bd233 sepolicy: Remove init chr_file reads
-
-====================
-     11-06-2025
-====================
-
-   * bionic
-6ab96686b Memset optimizations for Qualcomm Oryon CPUs:
-e55a8754b Performance Optimization for memset using SIMD
-
-   * device/google/cheetah
-e4b307d cheetah: Add crdroid dependencies
-
-   * device/google/gs201
-33880a8 gs201: Add crdroid dependencies
-
-   * device/google/pantah
-98bca2b pantah: overlay: Enable now playing settings
-6bea85c pantah: Enable UDFPS icons and animations
-ed7582e pantah: Include google facelock when available
-cb80f13 pantah: Add Pixel Camera if available
-b6c7854 pantah: Add crdroid dependencies
-
-   * external/vim
-129616c3a Merge tag 'v9.1.1896' of https://github.com/vim/vim into lineage-23.0
-
-   * lineage/crowdin
-70783f1 config: Add OplusEsimSwitcher
-
-   * lineage/wiki
-49347c5d salami/dodge: Remove eSIM quirk
-13276f2b wiki: Update maintainer list for guacamole
-fb603bed wiki: Update maintainer list for dre
-
-   * packages/apps/crDroidSettings
-aaabeae fixup! crdroid: Remove preferences when not supported
-
-====================
-     11-05-2025
-====================
-
-   * build/soong
-76cf1bf2e remove cross-version ABI dump difference check
-a2a0ba868 remove same-version ABI dump difference check
-
-   * frameworks/base
-194961f27e76 SystemUI: Fix keyguard transition race conditions
-c975a4794330 Revert "fix lockscreen elements randomly disappearing"
-857bbe7cedbe KeyProviderManager: Accept N >= 1 certs per key [1/2]
-de9058a855ce ComputerEngine: Fix signature spoofing for microG revanced
-8ba6c68849d1 New Crowdin updates (#1262)
-7378b5a0d44b Update Crowdin configuration file
-235ae589f510 SystemUI: Allow class loader plugin access on user builds
-661024eeb7e4 SystemUI: Add defensive checks in ClockRegistry
-ae4d57b0d689 SystemUI: Allow user to disable media art on ambient display
-d99d511f3541 EdgeLight: Use dozing status from provider directly
-2f4e2dd124f5 Pulse: Respect keyguard and bouncer state changes
-3e6721b6b8ab ScrimUtils: Send dozing state change value to listeners
-010e79988e19 SystemUI: Remove enhanced smartspace height
-c48e5a4f13b0 SystemUI: Prevent NotifCollection illegal state on notification dump
-8331bc25c690 Attestation: Update logging for keymint 4.0
-8d17c9479273 base: Auto set vbmeta digest and other props [1/2]
-0bfec669a5c6 SystemUI: Fix stale colors on power menu after UI mode change
-b44cf8ce7f31 switch AppOpsService.getPackagesForOpsForDevice() to ParceledListSlice
-ced81d1dec90 appops: skip ops for invalid null package during state serialization
-2fea0d0c723e Revert "Null safe package name in AppOps writeState"
-1e12c7accfde Fix the ArrayIndexOutOfBoundsException problem in PerformanceTracker.
-006850e5391a bootanimation: init progress font only if we need it
-1ac2d131fe23 Fix the issue of application freezing repeatedly
-420f9e331013 totalScanTimeMs and totalWifiLockTimeMs may be 0, causing an ArithmeticException and triggering a reboot.
-936c3af0dbd8 SystemUI: SeekBarViewModel: Cancel polling immediately on scrubbing start
-f3fd5f66dc13 SystemUI: SeekBarViewModel: Proper MotionEvent handling
-1b058a1e32bd SystemUI: SeekBarViewModel: Fix duration elvis and clamp in checkPlaybackPosition
-57edfbdd9008 SystemUI: Fix imageloader spam in BrightnessSliderViewModel
-8612fb35a46e SystemUI: Add customization for proper circle QS tile shape
-3466751c0a47 SystemUI: Fixing keyguard shade color
-83cf29969a21 SystemUI: QS background changes [SQUASHED]
-6b7deb7f3e28 SystemUI: Apply nothingOS fallback scrim color
-755e95173402 CpuMonitorService: reduce cache size
-64b83d2b8026 SystemUI: Add toggle for media squiggle animation
-dacad233e98c base: Allow screen off UDFPS when configured
-c8633246c932 SystemUI: Remove dozing condition for lockscreen media art
-032722f765b1 SystemUI: Add toggle for doze wallpaper
-9569f8652263 SystemUI: Fix lockscreen large clock alignment
-36b001798498 Reduce blocking operation on display thread
-86e4e8e3d41c SystemUI: Improve guarding header image
-a20bdf875d1d SystemUI: NetworkNameModel: Fall back to SPN if DATA_SPN is null
-d9c9d60d088c SettingsLib: Enable expressive by default in spa environment
-3d2a4bfad9f5 EdgeLight: Update effect animator
-9b397d97390a EdgeLight: Do not run two moving effects at once
-6f7a6d8c4319 EdgeLight: Introduce EdgeLight animation style
-896f4ff23034 EdgeLight: Add animated flowing rainbow gradient
-e63f6043618b EdgeLight: Set initial stroke width once in init
-c5b64666db0a EdgeLight: Improve rainbow color implementation
-210df865975f EdgeLight: Add rainbow gradient color mode
-ff7160cd6df6 EdgeLight: Do not set paint alpha every frame
-1ef0fce30fbc EdgeLight: Add 4-side rounded style option
-b541676e92b9 EdgeLight: Allow customizing stroke width
-1e18011a910b EdgeLight: Allow customizing pulse count
-8c4ec156fefc EdgeLight: Remove animator when finished
-523a2905646b EdgeLight: Rework color handling and remove redundancy
-03a1c67a16e3 EdgeLight: Allow granular color modes
-cc607b01ad2d SystemUI: Add edge light feature
-5be9fcc846db SystemUI: Add/remove notification listener enhancement
-eec2409f7a10 SystemUI: Allow to pulse on new tracks
-da1418edf0b6 SystemUI: Set transluency for stateful layer and add checks
-af1250f7edf3 SystemUI: Add toggle for translucent notifications on lockscreen
-cf39edb63997 SystemUI: Remove redundancy fixing notification transparency
-fb8659c4bc54 SystemUI: Fix notification transparency issues
-cfbddd0c50bc SystemUI: Add notification row transluency toggle
-cf6816ec6d64 Pulse: Do not add listeners if pulse is disabled
-dae2161c3e93 Pulse: Unify pulse running/showing state
-00080272be7d Pulse: Do not stop pulse if dozing
-62458b031c5e Pulse: State enhancements
-4cc6ba4a52ce Pulse: Make ambient pulse configurable
-d35680f68162 Pulse: Improve background design for RetroVUStyleRenderer
-88ededd68f70 Pulse: Fix length mismatch crash in MinimalStyleRenderer
-7cf3776ce6b8 Pulse: Add 3 new pulse style
-c0b677d02d18 Pulse: Add fading block renderer
-0cc1ea715f8d Pulse: Use visibility guard for draw and engine process
-45b009669ecb SystemUI: Add pulse visualizer
-268ab479b6cc SystemUI: Utilities: Update for media control
-1d53631a7e08 SystemUI: Improve handling of lockscreen media art
-08cca6cad743 SystemUI: Improvements for lockscreen media art
-80a0f675091b SystemUI: Add advanced filtering and customization
-98e7be280c72 SystemUI: Add lockscreen media art
-6ceb09c11afe SystemUI: Add option to disable quicksettings on keyguard
-213b1ffb919f SystemUI: Add ScrimUtils helper [SQUASHED]
-b1b20a1b42ce Fix ConcurrentModificationException in LocaleStore
-50bd149907c8 system: Postpone NetworkWatchlistService scan during boot
-b7d1f601a86f ScreenshotController: Play haptic feedback even on normal ringer mode
-eae3546ac607 ScreenshotController: Clean up resources when dismissed
-c440fd9445c8 try-catch unlinkToDeath called on unlinked Binder.
-8a901262a146 Minor code optimization.
-df5d562415e8 KeyGestureController: Fix broken actions for Assist key press and long press
-4043462c7055 ActivityManagerService: Perform system compaction with GC
-15cad6dbe330 services: Reduce memory release interval guard
-9ce519956651 ActivityManagerService: Rewrite release memory on screen wake
-7b1009580b2c ActivityManagerService: Adjust delay on boot system compaction
-aa65814fadfb HACK: telephony: Conditionally force enable LTE_CA
-3b43e6e3b0ff Move SaveUi from bottom to center
-ab2d5497473e am: Prevent ANRs by offloading dumps to a dedicated thread
-6f83f3ac42f8 SystemUI: Refresh system icons on theme change
-1d310628584f Fix NullPointerException in ArtFastDataOutput.writeUTF()
-c8b1444826d5 SystemUI: Fix drawable error in Icon compose
-
-   * lineage/wiki
-e56f46d5 wiki: Sync upgrade with download instructions
-
-   * packages/apps/crDroidSettings
-5584994 crdroid: Use legacy color for tab
+a9bf3eaf6 Revert "Add logs for split screen RemoteAnimationTargets"
 
    * vendor/addons
-b7c46359 addons: Update configuration for sony sketch font
-f0e85974 addons: Add IBM Plex Sans font
-
-====================
-     11-04-2025
-====================
-
-   * build/soong
-7f2e79f51 soong: Do not leak lineage_ prefixes in build.prop
-0417fc1e7 soong: Turn off debug props on userdebug builds
-acc9ce7f0 Disable fsgen check
-6842e8e23 soong: allow curl in path
-35445af37 check_boot_jars: Add LMODroid packages
-1b2ec0dad check_boot_jars: add more OnePlus packages to whitelist
-9cdc5dfb3 soong: Add out/soong/*.glob* to installclean
-727536001 cc/lto: enable unified LTO
-5d61a60d7 cc/lto: add property for not restricting instr limit
-8c321aa20 lto: enable O3 optimizations on explicit lto modules
-b6e3244b3 cc/lto: instr limit of 40 for explicit LTO modules
-03a62e7b7 soong: Set ro.crdroid.device
-cc7c8dc65 soong: Disable sandbox
-7b9be2fe0 Remove workaround for Qualcomm Kryo 385
-13285fad3 Enable crypto extensions for armv9-a
-90140f62d Use -march=armv9-a+nosve for Armv9-A arch variant
-ab4c8ec65 config: Update cortex a75 flags
-f45a8de64 config: do not force cortex-a76 as cortex-a75
-f67866c7a cc: Enable more features when using armv8.2-a+dotprod
-b6f4bf667 soong: Add kryo300 variant support
-cfd90e1f0 soong: add kryo785 architecture variant for arm64.
-56827bee6 Define AArch32 soong variable
-c06dc59c2 arm_device: Change cortex-a76 mcpu from a55 to a75
-c3dae13ab arm64_device: Change cortex-a76 mcpu from a55 to a75
-a3270ef6d Introduce Cortex-A510 CPU variant
-2097d1d84 soong: increase heap size for metalava
-274125b33 soong: Change to CR_VERSION
-881c6d973 soong: Allow various path commands
-bfa221346 soong: Always return release-keys
-a920f778a Revert "Remove timestamp from local build number"
-1d0838aac Add ability to enable scudo-free 32-bit libc variant.
-
-   * hardware/qcom-caf/thermal-legacy-um
-5429698 thermal-hal: Update skin temperature threshold for msmnile
-
-   * lineage/scripts
-953b0b1 scripts: Add collect-kernel-module-deps.py
-
-   * lineage/wiki
-718fb6c8 wiki: Fix wipe-frp/reboot commands
-9c17c895 fixup! wiki: Add a faq about fixing frp
-
-   * packages/apps/crDroidSettings
-d241de7 crdroid: Remove preferences when not supported
+3b1b7ad0 addons: Update fonts_customization.xml for google fonts
+48859bf7 addons: Use xmllint on fonts_customization.xml
 
    * vendor/lineage
-b989384e crdroid: Bump to version 12.2
-cda5bd15 envsetup: Set crdroid path for Pixel OOT kernel build
-b6b9762b crdroid: Do not install matlog and updater in private space
-506755f3 build: Ship adb_root only WITH_SU
-d26c2fcd crdroid: Include vendor/certification when available
-f3f86039 release: Re-enable launcher blur flags
-acb41db0 overlay: enable ambient burn in protection
-2ee880dc component-overrides: Force disable google settings intelligence injects
-37913d9a overlay: Enable keyboard vibration
-7e65cce0 overlay: SystemUI: Add plugin whitelist
-0424ca18 overlay: SystemUI: Tune new biometric dialog UI
-137475f5 overlay: Enable split shade for notifications in landscape
-7bd4b33c release: Disable apply_picture_profiles
-82f85d38 release: Disable lpp squeeze effect
-e9bb8b07 release: Generate themed/monochrome icons for all apps
-299232be release: Disable ambient AOD
-32b21755 release: Remove glanceable hub
-a336d48a release: Remove some useless notification flags
-09c6d0a6 release: Remove flag for using emphasized font family for shade header
-36743321 release: Remove glitchy depth push scaling effect
-6a61a36a release: Drop notification themed icons
-84cc0b4f release: drop more launcher flags
-2248d82d release: drop more flags
-7e1eaf40 release: Disable enroll_layout_truncate_improvement
-9cba5fb6 release: Remove notifications redesign templates flag
-e495b0da release: Disable thumbnail_block_model flag
-68cb718c release: Enable android.app flags
-33b3a53e release: drop launcher blur
-5e7d296e release: Re-add transparent notification
-4c3ef291 release: more flag changes
-1ed09677 release: enable more flags
-91d189e1 release: drop low_light_clock_dream
-49be4255 release: drop some flags
-7dcdefd3 release: drop new sb icons
-70af0c87 release: Enable WallpaperPicker2 flags
-6163083b release: Enable SystemUI flags (com.android.systemui.shared)
-93179b59 release: Enable SystemUI flags
-fdbaa666 release: Enable SettingsLib flags
-e8da9757 release: Enable Settings flags
-33d3a73c release: Enable Launcher3 flags
-b37d68a2 overlay: Make Google Sans the default headline font
-5874e036 Move adb_root outside userbuild
-9fc984ae crdroid: Adding an option to build DeviceAsWebcam
-331bee9b crdroid: Allow disabling MatLog
-601a89c7 crdroid: generate json at build time
-230ca021 component-overrides: Force disable various google components
-d7e45c2c crdroid: Conditionally build ColumbusService
-f42f1eb3 crdroid: Move face unlock biometric permission to system_ext
-89d9f6f1 crdroid: Switch to AOSPA's face unlock implementation
-260c1313 crdroid: Build LMO Freeform app and sidebar
-8662b4d3 crdroid: Build GameSpace
-724205b1 crdroid: Build BatteryStatsViewer
-1e5cd6b5 overlay: Add gms location history to extra location packages
-00d70860 overlay: Add tethering to location exemption
-10569ae7 overlay: Add SystemUI to location extra packages
-48b5fc50 overlay: Add OmniJaws to location extra packages
-47527539 crdroid: Build OmniJaws service
-138273aa crdroid: Build OmniStyle
-5e2291b6 config: Enable Material Design 3 Expressive
-13637d77 overlay: DeviceConfig: update nearby flags
-0a239274 soong: Add CAMERA_NEEDS_CLIENT_INFO_LIB{_OPLUS} to select()
-4bbfbc08 soong: Add support for vendor tag with client package name to select
-394c5191 build: Override host metadata
-ad313e86 kernel: Set "safe" default values for kernel build host & user
-9f76fd94 roomservice.py: use -j2 for repo sync
-044ff0c5 apns: Add 1and1 (Germany)
-03945f95 apns: Use custom attribute type for {mms,}proxy
-729de7f9 overlay: Remove bouncer delay when face unlock is enabled
-49bdaaa0 rro_overlay: Use headline font for PermissionController
-752eb293 overlay: device_config: Updates
-53861756 overlay: device_config: Add values required for Speech Recognition
-ea64e37d overlay: device_config: Escape special characters
-30e3750d overlay: device_config: animate navbar on long press
-a761b660 overlay: Update circle to search overlays for vanilla builds
-c0a856ec overlay: Enable circle to search
-fc9cf338 overlay: Use google-sans for font config overlays
-ec692ec9 crdroid: Remove packages moved to addons
-08f8cc51 crdroid: Moved bootanimation to addons
-6249cba9 crdroid: Clean up wallpaper overlay
-f3dba1cf crdroid: Do not clone default AudioFX app
-c275a184 crdroid: Disable default frame rate limit for games
-03cbfe72 config: Optimize Launcher3 and Settings for speed
-a3285217 crdroid: Disable memtag for different processes
-7611fda9 crdroid: Execute changelog script once at a time
-b2681381 crdroid: Add changelog script
-7d7a87ad overlay: update configs for AiAi
-5c2a1f71 overlay: Update device configs global overrides
-090ad11e overlay: Offload WM shell to another thread
-1f8c4b70 overlay: Update SettingsProvider defaults
-b0947df8 crdroid: Update clone exemption list
-445abb07 crdroid: Add preinstalled package list to stop auto cloning
-0e3cc535 overlay: Enable app-cloning feature in Settings
-f9b7102f overlay: Settings: Show memory usage in app info
-81a8bf25 device_config: Enable Cloned App
-26296c6f overlay: Update clock plugin list
-10030aa3 overlay: Allow new SystemUI clocks
-71f14d21 overlay: Set AOSP webview as fallback
-83f57d69 build: Enable ThinLTO cache
-2f0d4ce5 crdroid: Always disable app launch blur
-8cbfec27 common: Allow OTA downgrade regardless build type
+90eeb17 overlay: Use google sans flex for lockscreen clock
+926cc20 overlay: Make Google Sans the default headline font
+0416426 overlay: Use google-sans for font config overlays
 
 ====================
-     11-03-2025
+     01-10-2026
 ====================
 
-   * hardware/qcom-caf/common
-95c5d93 fcm: Add entry for version 2 of ASR AIDL interface
+   * lineage-sdk
+0164b4e sdk: SelfRemovingPreference: set visibility at early stage
+344f8a3 sdk: remove app from recents after kill
+9da5c9f NotificationLights: Allow overriding for all apps [1/2]
+18dae63 sdk: Add customization for double tap recents key [1/3]
+c35dd95 lineage-sdk: Allow to customize bottom corner swipe up action [3/4]
+492b32c Add three fingers swipe actions [1/3]
+9a80655 Add On-The-Go Mode to power menu constants
+6e25c59 Add restart SystemUI in Advanced Reboot [2/2]
+fb2d401 Add toggle to allow advanced restart on secured lockscreen[1/2]
+2095d03 Battery light: 100% charged level (3/3)
+491c4d8 Set long press on back default to kill app
+62f32e7 Add more device key actions
+7886949 ChargingControl: Prevent crash against null provider
+2cd7b28 ChargingControl: Show notification if device is charging
+76af420 Fix settings pref switch for multi-user
+0c6dc03 Properly set default value for switch pref
+131d952 Allow value to hide the clock
+4fe3609 Allow value 3 for status bar quick pull down
+ff28939 Remove setting loading for FORCE_SHOW_NAVBAR
+2177b76 Bring our icon
+e3ee903 Try loading default setting value for switch
+cc6fc07 Set summary automatically if required
+0621a9d Enable advanced reboot by default
+ee576b3 Do not prevent boot on database downgrade
+bafd68e Kill trust interface hint on first boot
+086b60b Disable by livedisplay by default
+9221111 Ship as crDroid based on LOS
+
+   * lineage/mirror
+e7787e1 Updated to 09-Jan-2026 23:01 UTC
+
+====================
+     01-09-2026
+====================
+
+   * lineage-sdk
+bde5105 Revert "LineagePreferenceLib: Ensure the preference is available before replacing"
 
    * lineage/hudson
-8cf57eb hudson: Promote Galaxy A71 to 23.0
-583128d Use tegu for exp 23
-48a9559 A wild lizard appears
-7c9f621 No source?
+3eec203 Regenerate device dependency mappings
+
+   * lineage/mirror
+a8aea8d Updated to 08-Jan-2026 23:01 UTC
 
    * lineage/wiki
-bc27c3aa wiki: Add a faq about fixing frp
-eea58c65 wiki: Add faq's for gapps questions
-cf4c291e wiki: Promote Galaxy A71 to 23.0
-2ec5ede3 wiki: Link to kernel source manifest for tensor Pixels
-299347f9 wiki: Add Pixel 9a
-538c85e0 wiki: Promote tensor Pixels to 23.0
+aee498f wiki: Fix validate.rb parallel execution exit status
+9fdbe1f wiki: Add OnePlus Nord 5
+ebcb9e0 devices: aml*: Rework install instructions
 
-   * packages/apps/crDroidSettings
-0af950d crdroid: support: Cancel previous notification
+   * vendor/lineage
+cb75371 crdroid: Bump to version 12.5
+d34256b component-overrides: Force disable google settings intelligence injects
+fa542f6 config: tablet: Disable desktop windowing mode
+107247c roomservice: refactor GitHub API handling
+f101567 crdroid: Enable background blur support by default
+6df5eb4 overlay: device_config: Updates
+5f3a67d release: Import release flags from bp2a and mica bp3a
+34f669d build: Ship adb_root only WITH_SU
+5272b08 crdroid: Include vendor/certification when available
+59d0681 crdroid: Do not install matlog and updater in private space
+aa3907d Move adb_root outside userbuild
+68d2e1f crdroid: Adding an option to build DeviceAsWebcam
+5d12b32 crdroid: Allow disabling MatLog
+64f21f3 crdroid: generate json at build time
+17299f7 component-overrides: Force disable various google components
+f4e18f5 overlay: Add gms location history to extra location packages
+68094ae overlay: Add tethering to location exemption
+9416b90 overlay: Add SystemUI to location extra packages
+25f1222 overlay: Add OmniJaws to location extra packages
+f7c61ed soong: Add CAMERA_NEEDS_CLIENT_INFO_LIB{_OPLUS} to select()
+d81a3a0 soong: Add support for vendor tag with client package name to select
+1bcbe16 crdroid: Execute changelog script once at a time
+f2e7e6a crdroid: Add changelog script
+f9c8d3b common: Allow OTA downgrade regardless build type
+cb9fa58 roomservice: allow LOS kernel configs
+d2f3f01 roomservice: validate dependencies
+8f97761 roomservice.py: use -j2 for repo sync
+1ed9ca0 roomservice: get me some crDroid
+341eca6 crdroid: Conditionally build ColumbusService
+617320a overlay: Offload WM shell to another thread
+2b46fa3 crdroid: Update clone exemption list
+b80e381 crdroid: Add preinstalled package list to stop auto cloning
+576856e overlay: Enable app-cloning feature in Settings
+2b2b157 overlay: Settings: Show memory usage in app info
+2e5c8c4 device_config: Enable Cloned App
+0a837b9 crdroid: Move face unlock biometric permission to system_ext
+34de79f crdroid: Switch to AOSPA's face unlock implementation
+d95f9d7 overlay: Remove bouncer delay when face unlock is enabled
+253eb42 config: Switch to glif_expressive SUW theme
+9687bcb crdroid: Build LMO Freeform app and sidebar
+78a9925 crdroid: Build GameSpace
+ebaaf6a build: Override host metadata
+af6ac50 kernel: Set "safe" default values for kernel build host & user
+43ea991 rro_overlay: Use headline font for PermissionController
+fc55aac overlay: Update circle to search overlays for vanilla builds
+036372f overlay: Enable circle to search
+19d2434 crdroid: Clean up wallpaper overlay
+d0ec8f7 crdroid: Disable memtag for different processes
+09a37af overlay: Enable split shade for notifications in landscape
+e81f3e7 crdroid: Build BatteryStatsViewer
+7ed4146 crdroid: Build OmniJaws service
+34d19b4 crdroid: Build OmniStyle
+668200f overlay: SystemUI: Add plugin whitelist
+9e16790 overlay: Update SettingsProvider defaults
+ec58eb4 overlay: Set AOSP webview as fallback
+6468455 crdroid: Remove packages moved to addons
+34da1eb crdroid: Moved bootanimation to addons
+9c5e96f overlay: Update clock plugin list
+ed1629e overlay: Allow new SystemUI clocks
+67f9c9b charger: Switch from LineageOS Teal to crDroid Blue
+33400b5 Revert "overlay: Default to Seedvault backup transport"
+ac53179 envsetup: Set crdroid path for Pixel OOT kernel build
+53ce939 build: Enable ThinLTO cache
+6a586d9 crdroid: Drop custom adb drawable
+fa420a7 build: Ship as crDroid based on LOS
 
 ====================
-     11-02-2025
+     01-08-2026
 ====================
-
-   * device/qcom/sepolicy-legacy-um
-e6959abb fixup! legacy: hal_soter -> vendor_hal_soter
-57d39afa legacy: hal_soter -> vendor_hal_soter
-c5a86cf7 sepolicy: Move hal_soter attribute to public
-
-   * device/qcom/sepolicy_vndr/legacy-um
-98784484c legacy: hal_soter -> vendor_hal_soter
-
-   * external/vim
-1ead1b51e patch 9.1.1896: tests: patch v9.1.1895 breaks CI
 
    * lineage/hudson
-89aa388 bump gauguin to 23.0
-a902755 dodge joins the 23.0 race
+d91422d hudson: heard lexus was missing out
+
+   * lineage/scripts
+e1726c4 dev: rro: Read statement's module the safe way
 
    * lineage/wiki
-dff52d19 aston: Add eSIM quirk
-01428583 wiki: Promote gauguin to 23.0
-36cd9b4a wiki: Add a note about signature verification
-ff9f210c wiki: Fix indentation in install guide
-05418353 salami/waffle/dodge: Add eSIM quirk
-e2e2162d wiki: Add OnePlus 13
+e61989c wiki: False -> false, True -> true
+86b5ada fixup! wiki: Merge the developer information page into contributing page
+
+====================
+     01-07-2026
+====================
+
+   * lineage/scripts
+ed6aa8f dev: Run ruff format
+49e3179 dev: utils: Fix missing Callable import
+bf863d6 dev: rro: Support adding custom package paths
+cff2b44 dev: rro: Beautify overlay packages smarter
+d0512fd dev: rro: Support `targetName` overlay attr
+
+   * packages/apps/AudioFX
+6fb1a15 AudioFX: Optimize and shrink resources
+
+   * vendor/lineage
+1559504 release: Bump Security String to 2026-01-01
+
+   * vendor/qcom/opensource/power
+4914c6f config: lahaina: Remove duplicate camera 30FPS SHDR hint
+
+====================
+     01-06-2026
+====================
+
+   * lineage-sdk
+6f98756 health: Catch all exceptions in fastcharge handleSettingChange
+
+   * lineage/hudson
+92072ae Regenerate device dependency mappings
+
+   * lineage/scripts
+0679aa1 scripts: add tarball manifest matcher
+7d410ac scripts: add aconfig extractor
+d86de17 scripts: add developer tools
+
+====================
+     01-05-2026
+====================
+
+   * lineage/hudson
+0bd7232 Regenerate device dependency mappings
+
+   * lineage/mirror
+551dfcf Updated to 04-Jan-2026 11:01 UTC
+
+====================
+     01-04-2026
+====================
+
+   * android
+3311760 Revert "Fork external/google-fonts/google-sans-flex"
+475fa84 Merge 'lineage-23.1' of https://github.com/LineageOS/android into 16.0
+
+   * device/lineage/sepolicy
+3f38772 sepolicy: Label ro.surface_flinger.blur_disabled_by_default
+f9a95d5 sepolicy: Allow systemui access to bluetooth_lea_prop
+
+   * lineage/hudson
+4a204d7 Regenerate device dependency mappings
+93a2136 hudson: Add OnePlus 13R / Ace 5
+691b00a gunnar: Promote to 23.0
+
+   * lineage/website
+18f1b58 Make local bundle/vendor install of Jekyll easier
+
+   * lineage/wiki
+b129d43 wiki: Add OnePlus 13R / Ace 5
+dbdf253 devices: gunnar: Promote to 23.0
+
+   * packages/apps/FaceUnlock
+0a35109 FaceUnlock: Add ACCESS_SURFACE_FLINGER permission to manifest
+
+====================
+     01-03-2026
+====================
+
+   * frameworks/native
+0c9086e6b Reduce thread scheduling overhead
+
+   * lineage/hudson
+9815337 Regenerate device dependency mappings
+
+   * lineage/wiki
+1352108 fixup! gems: Update jekyll to 4.3.3
+0510c69 gems: Update jekyll to 4.3.3
+
+   * packages/apps/GameSpace
+5621c82 GameSpace: Migrate app icons to mipmap and add multi-density assets
 
    * packages/apps/crDroidSettings
-c57450c crdroid: Group lockscreen media art settings
-686ffc8 crdroid: Allow user to disable media art on ambient display
+401440b New Crowdin updates (#1284)
 
-   * vendor/addons
-8fcd2dce addons: Make SystemUI clocks privileged apps
+   * packages/modules/Wifi
+ad785f3f3 handle invalid password
 
 ====================
-     11-01-2025
+     01-02-2026
 ====================
 
-   * external/vim
-213109a99 runtime(doc): clarify W11 warning and possible options
-8707b7a15 patch 9.1.1895: OSC terminal response hard to detect
-7c418c75a patch 9.1.1894: global_runtime_dir appends /after directory when using XDG
-040566563 patch 9.1.1893: ICCF charity will dissolve
-294bce21e patch 9.1.1892: Not possible to know once Vim is done with sourcing vimrc
-fe71c56d8 runtime(netrw): NetrwChgPerm for files not in cwd
-28f7582c1 runtime(log): syntax file update
-07da26710 runtime(doc): Fix a few typos
+   * android
+578cf6f manifest: Track DolbyAtmos package
 
-   * lineage/wiki
-cee05e65 wiki: Fix bluejay's screen refresh rate
+   * lineage/mirror
+34ece06 Updated to 01-Jan-2026 23:01 UTC
 
    * packages/apps/Aperture
-998f355 Automatic translation import
+0926cc7 Automatic translation import
 
-   * packages/apps/Glimpse
-6a365d1 Automatic translation import
+   * packages/apps/AudioFX
+6f60288 Automatic translation import
 
-   * packages/apps/LMOFreeform
-cfd916a New translations (#12)
-
-   * packages/apps/Settings
-2da236f992d network: Link to custom eSIM settings
-
-   * packages/apps/Twelve
-516d1f4 Automatic translation import
-
-   * packages/apps/crDroidSettings
-a2f2a80 New Crowdin updates (#1263)
-d48a942 crdroid: Update icon for vbmeta attestation
-
-   * packages/resources/devicesettings
-28a3378 Automatic translation import
-
-   * tools/extract-utils
-4e62c34 extract_utils: sort-blobs-list.py: Use a single regex to get source name
-ceaf573 extract_utils: sort-blobs-list.py: Handle sha1sum argument
-4afac1d extract_utils: sort-blobs-list.py: Fix lint warning
-
-   * vendor/crowdin
-208c135 Automatic translation import
-
-====================
-     10-31-2025
-====================
-
-   * external/vim
-adc85151f patch 9.1.1891: g<End> does not move to last non-blank in visual mode
-958393b0b translation: regenerate po/vim.pot after 73a0de4a04b48cca
-73a0de4a0 patch 9.1.1890: %P in 'statusline' doesn't behave as documented
-69dd5906f patch 9.1.1889: filetype: not all AppleScript files are recognized
-
-   * lineage/hudson
-5bdec50 Regenerate device dependency mappings
-
-   * packages/apps/LMOFreeform
-10907b1 New Crowdin updates (#11)
+   * packages/apps/DolbyAtmos
+c4eb295 DolbyAtmos: Update Russian translation
+05ac2a8 dolby: Add Polish translations
+7fdcfa9 dolby: Switch to MaterialTheme settingsBackground for  EqualizerScreen background color
+9a838e6 dolby: Migrate MainSwitchBar and Switch to Material3
+e561e4f dolby: Make sure to persist value after toggling QS tile
+fef5efa dolby: Make bass enhancer available on speakers as well
+4f5e351 dolby: Add ru translations
+2da5e31 dolby: Exempt installing package in clone or private space
 
    * packages/apps/Launcher3
-9796c7ea03 New Crowdin updates (#506)
-
-   * packages/apps/crDroidSettings
-29435e0 crdroid: Allow user to turn off vbmeta digest update
-0d97404 New Crowdin updates (#1261)
-
-   * system/core
-e2efcc638 core: Allow user to turn off vbmeta digest update
-
-====================
-     10-30-2025
-====================
-
-   * build/make
-320aa0e9f8 envsetup: Build OOT kernel during lunch if needed
-ef8c7e36c6 always use UTC as the time zone for build dates
-
-   * external/vim
-4105ef16e Drop superfluous execute permissions for readable files
-5f10e711a vim: Update srcs[]
-
-   * hardware/qcom-caf/thermal-legacy-um
-03845e4 thermal-hal: Update skin temperature threshold for kona
-
-   * packages/apps/Settings
-c4abde1e11d Settings: Enable "install available apps"
-
-====================
-     10-29-2025
-====================
-
-   * bootable/recovery
-170588fe allowing spl downgrade by default
-
-   * build/make
-2ea45bb110 build: Turn off debug props on userdebug builds
-
-   * device/qcom/sepolicy_vndr/sm8450
-43f9c1041 NFC: ST: Add the AIDL HAL service
-e39b56b1c NFC: FR74324, Add the new STM NFC HAL service
-
-   * device/qcom/sepolicy_vndr/sm8550
-2894ee51c NFC: ST: Add the AIDL HAL service
-
-   * external/vim
-8f551a70a runtime: regenerate helptags, update last-change header in tombi compiler
-5c3e76263 patch 9.1.1888: Wrong display with cpo+=$, matchparen and wrapped line
-14e720371 runtime(compiler): Fix escaping in Windows shell command for tombi
-
-   * hardware/qcom-caf/thermal-legacy-um
-0878137 thermal-hal: Revert "Add tsens,bcl configuration for kona"
+cac0c267a Launcher3: Do not disable labels for popups
 
